@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjy.demo1.mapper.UserMapper">
+
+    <select id="listUsers" resultType="map">
+        select * from users
+    </select>
+
+    <insert id="insertUser" parameterType="com.wjy.demo1.vo.User" >
+        INSERT into users(uid ,uname,upass) VALUES (null,#{uname},#{upass})
+    </insert>
+
+    <update id="updateUser" parameterType="map">
+        UPDATE users set uname=#{uname},upass=#{upass} where uid=#{uid}
+    </update>
+
+    <delete id="deleteUser" parameterType="map">
+        DELETE from users where uid=#{uid}
+    </delete>
+
+</mapper>
